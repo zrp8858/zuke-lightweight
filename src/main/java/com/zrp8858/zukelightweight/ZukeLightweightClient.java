@@ -15,6 +15,7 @@ public class ZukeLightweightClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        SlotRefill.register();
         LOGGER.info("zukeLightweight loaded");
     }
 }
