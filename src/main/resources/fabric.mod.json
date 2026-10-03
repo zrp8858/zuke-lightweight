@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "zuke-lightweight",
+  "version": "${version}",
+  "name": "zukeLightweight",
+  "description": "Mostly-vanilla quality-of-life features, entirely client side.",
+  "authors": [
+    "zrp8858"
+  ],
+  "license": "ARR",
+  "icon": "assets/zuke-lightweight/icon.png",
+  "environment": "client",
+  "contact": {
+    "sources": "https://github.com/zrp8858/zuke-lightweight",
+    "issues": "https://github.com/zrp8858/zuke-lightweight/issues"
+  },
+  "entrypoints": {
+    "client": [
+      "com.zrp8858.zukelightweight.ZukeLightweightClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}

@@ -1,0 +1,68 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+repositories {
+    // Add repositories to retrieve artifacts from in here.
+    // You should only use this when depending on other mods because
+    // Loom adds the essential maven repositories to download Minecraft and
+    // libraries from automatically.
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/releases/"
+    }
+}
+
+dependencies {
+    // To change the versions see the gradle.properties file.
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+    // Minecraft 26.1+ ships unobfuscated with Mojang's real names baked in,
+    // so there's no separate mappings artifact to depend on anymore (that's
+    // also why plain `implementation` is used below instead of the old
+    // `modImplementation` -- Loom no longer needs to remap anything).
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Fabric API. Technically optional, but this mod uses it for the
+    // client hooks.
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    // Mod Menu API, compile-only: our "modmenu" entrypoint 
+    // ZukeLightweightModMenu, once written) is only ever invoked by Mod Menu
+    // itself, which is only on the classpath when the player has it
+    // installed -- so it must not be bundled or required at runtime.
+    compileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+}
+
+processResources {
+    def version = project.version
+    inputs.property "version", version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 25
+}
+
+java {
+    // Loom will automatically attach sourcesJar to the "build" task if present.
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+    def projectName = project.name
+    inputs.property "projectName", projectName
+
+    from("LICENSE.md") {
+        rename { "${it}_${projectName}" }
+    }
+}
