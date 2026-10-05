@@ -1,5 +1,6 @@
 package com.zrp8858.zukelightweight;
 
+import com.zrp8858.zukelightweight.config.Configs;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Inventory;
@@ -29,7 +30,8 @@ public final class SlotRefill {
 
     private static void tick(Minecraft mc) {
         Player player = mc.player;
-        if (player == null || mc.gameMode == null) {
+        if (player == null || mc.gameMode == null
+                || !Configs.Features.SLOT_REFILL.getBooleanValue()) {
             lastSlot = -1;
             lastStack = ItemStack.EMPTY;
             return;

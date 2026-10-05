@@ -17,13 +17,17 @@
   "entrypoints": {
     "client": [
       "com.zrp8858.zukelightweight.ZukeLightweightClient"
+    ],
+    "modmenu": [
+      "com.zrp8858.zukelightweight.ZukeLightweightModMenu"
     ]
   },
   "depends": {
     "fabricloader": ">=0.19.3",
     "minecraft": "~26.3",
     "java": ">=25",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "malilib": ">=0.30.2"
   },
   "suggests": {
     "modmenu": "*"
