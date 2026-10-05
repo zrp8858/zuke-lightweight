@@ -9,6 +9,9 @@
   ],
   "license": "ARR",
   "icon": "assets/zuke-lightweight/icon.png",
+  "mixins": [
+    "zuke-lightweight.mixins.json"
+  ],
   "environment": "client",
   "contact": {
     "sources": "https://github.com/zrp8858/zuke-lightweight",
