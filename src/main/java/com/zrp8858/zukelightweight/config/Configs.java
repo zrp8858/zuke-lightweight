@@ -40,6 +40,16 @@ public final class Configs implements IConfigHandler {
                 ImmutableList.of(SLOT_REFILL, HOTBAR_SHUFFLE);
     }
 
+    /** Mouse tweaks (boolean + optional hotkey each). */
+    public static final class MouseTweaks {
+        public static final ConfigBooleanHotkeyed DRAG_QUICK_MOVE = new ConfigBooleanHotkeyed(
+                "dragQuickMove", true, "",
+                "zuke-lightweight.config.dragQuickMove.comment",
+                "zuke-lightweight.config.dragQuickMove.name");
+
+        public static final ImmutableList<ConfigBooleanHotkeyed> TOGGLES = ImmutableList.of(DRAG_QUICK_MOVE);
+    }
+
     /** Plain hotkeys that aren't feature toggles. */
     public static final class Hotkeys {
         public static final ConfigHotkey OPEN_CONFIG_GUI = new ConfigHotkey(
@@ -50,12 +60,19 @@ public final class Configs implements IConfigHandler {
         public static final ImmutableList<ConfigHotkey> HOTKEYS = ImmutableList.of(OPEN_CONFIG_GUI);
     }
 
+    /** Every feature toggle across all tabs. */
+    public static final List<ConfigBooleanHotkeyed> ALL_TOGGLES = ImmutableList.<ConfigBooleanHotkeyed>builder()
+            .addAll(Features.TOGGLES)
+            .addAll(MouseTweaks.TOGGLES)
+            .build();
+
     /** Every hotkey-capable config, for registering with malilib's input handler. */
     public static final List<IHotkey> ALL_HOTKEYS;
 
     static {
         List<IHotkey> hotkeys = new ArrayList<>();
         hotkeys.addAll(Features.TOGGLES);
+        hotkeys.addAll(MouseTweaks.TOGGLES);
         hotkeys.addAll(Hotkeys.HOTKEYS);
         ALL_HOTKEYS = List.copyOf(hotkeys);
     }
@@ -67,6 +84,7 @@ public final class Configs implements IConfigHandler {
             if (root.isJsonObject()) {
                 JsonObject obj = root.getAsJsonObject();
                 ConfigUtils.readConfigBase(obj, "Features", new ArrayList<IConfigBase>(Features.TOGGLES));
+                ConfigUtils.readConfigBase(obj, "MouseTweaks", new ArrayList<IConfigBase>(MouseTweaks.TOGGLES));
                 ConfigUtils.readConfigBase(obj, "Hotkeys", new ArrayList<IConfigBase>(Hotkeys.HOTKEYS));
             }
         });
@@ -76,6 +94,7 @@ public final class Configs implements IConfigHandler {
     public void save() {
         JsonObject root = new JsonObject();
         ConfigUtils.writeConfigBase(root, "Features", new ArrayList<IConfigBase>(Features.TOGGLES));
+        ConfigUtils.writeConfigBase(root, "MouseTweaks", new ArrayList<IConfigBase>(MouseTweaks.TOGGLES));
         ConfigUtils.writeConfigBase(root, "Hotkeys", new ArrayList<IConfigBase>(Hotkeys.HOTKEYS));
         JsonUtils.writeJsonToFile(root, FileUtils.getConfigDirectoryAsPath().resolve(CONFIG_FILE));
     }

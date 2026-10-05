@@ -1,6 +1,7 @@
 package com.zrp8858.zukelightweight;
 
 import com.zrp8858.zukelightweight.config.InitHandler;
+import com.zrp8858.zukelightweight.mouse.MouseTweaks;
 import fi.dy.masa.malilib.event.InitializationHandler;
 import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ public class ZukeLightweightClient implements ClientModInitializer {
         InitializationHandler.getInstance().registerInitializationHandler(new InitHandler());
         SlotRefill.register();
         HotbarShuffle.register();
+        MouseTweaks.register();
         LOGGER.info("zukeLightweight loaded");
     }
 }

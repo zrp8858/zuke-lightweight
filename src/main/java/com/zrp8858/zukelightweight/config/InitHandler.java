@@ -23,7 +23,7 @@ public final class InitHandler implements IInitializationHandler {
                 new ModInfo(ZukeLightweightClient.MOD_ID, "zukeLightweight", ConfigScreen::new));
 
         // Toggling a feature with its hotkey shows malilib's "<name>: ON/OFF" message.
-        for (var toggle : Configs.Features.TOGGLES) {
+        for (var toggle : Configs.ALL_TOGGLES) {
             toggle.getKeybind().setCallback(new KeyCallbackToggleBooleanConfigWithMessage(toggle));
         }
 

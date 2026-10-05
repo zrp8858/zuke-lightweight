@@ -1,6 +1,7 @@
 {
   "zuke-lightweight.gui.title": "zukeLightweight Configs",
   "zuke-lightweight.gui.tab.features": "Features",
+  "zuke-lightweight.gui.tab.mouse": "Mouse Tweaks",
   "zuke-lightweight.gui.tab.hotkeys": "Hotkeys",
   "zuke-lightweight.hotkeys.category": "zukeLightweight Hotkeys",
   "zuke-lightweight.config.slotRefill.name": "Slot Refill",
@@ -8,6 +9,8 @@
   "zuke-lightweight.config.hotbarShuffle.name": "Hotbar Shuffle",
   "zuke-lightweight.config.hotbarShuffle.comment": "While on, placing a block randomly reselects another
 placeable block from your hotbar.",
+  "zuke-lightweight.config.dragQuickMove.name": "Shift+Drag Quick Move",
+  "zuke-lightweight.config.dragQuickMove.comment": "Hold Shift and left-click, then drag across stacks to\nquick-move (shift-click) each one you pass over.",
   "zuke-lightweight.config.openConfigGui.name": "Open Config Screen",
   "zuke-lightweight.config.openConfigGui.comment": "Opens this config screen."
 }
