@@ -13,6 +13,8 @@ needed.
 - Minecraft 26.3
 - [Fabric Loader](https://fabricmc.net/use/) 0.19.5+
 - [Fabric API](https://modrinth.com/mod/fabric-api)
+- [malilib](https://modrinth.com/mod/malilib) (config screen and hotkeys)
+- [Mod Menu](https://modrinth.com/mod/modmenu) (optional; adds a "Configure" button)
 - Java 25
 
 ## License

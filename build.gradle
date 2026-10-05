@@ -10,6 +10,15 @@ repositories {
     // You should only use this when depending on other mods because
     // Loom adds the essential maven repositories to download Minecraft and
     // libraries from automatically.
+    // Modrinth's maven, for malilib (the config/hotkey library Tweakeroo and
+    // MiniHUD use). Scoped to its own group so it can't shadow other artifacts.
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
     maven {
         name = "TerraformersMC"
         url = "https://maven.terraformersmc.com/releases/"
@@ -30,11 +39,19 @@ dependencies {
     // client hooks.
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-    // Mod Menu API, compile-only: our "modmenu" entrypoint 
-    // ZukeLightweightModMenu, once written) is only ever invoked by Mod Menu
+    // malilib: required at runtime (players must install it). Minecraft is
+    // unobfuscated, so no remapping -- plain `implementation` as above.
+    implementation "maven.modrinth:malilib:${project.malilib_version}"
+
+    // Mod Menu API, compile-only: our "modmenu" entrypoint (see
+    // ZukeLightweightModMenu) is only ever invoked by Mod Menu
     // itself, which is only on the classpath when the player has it
     // installed -- so it must not be bundled or required at runtime.
     compileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+
+    // Dev client only: put Mod Menu on the runClient classpath so the mod list
+    // and each mod's config button can be tested. Never bundled in the jar.
+    localRuntime "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
 processResources {
