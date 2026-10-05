@@ -82,4 +82,6 @@ jar {
     from("LICENSE.md") {
         rename { "${it}_${projectName}" }
     }
+    // Notices for third-party code adapted into this mod (BSD terms require shipping them).
+    from("THIRD-PARTY-NOTICES.md")
 }

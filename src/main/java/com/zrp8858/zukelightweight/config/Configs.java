@@ -8,6 +8,7 @@ import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
 import fi.dy.masa.malilib.config.options.ConfigBooleanHotkeyed;
 import fi.dy.masa.malilib.config.options.ConfigHotkey;
+import fi.dy.masa.malilib.config.options.ConfigOptionList;
 import fi.dy.masa.malilib.hotkeys.IHotkey;
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.data.json.JsonUtils;
@@ -52,8 +53,24 @@ public final class Configs implements IConfigHandler {
                 "zuke-lightweight.config.dragGather.comment",
                 "zuke-lightweight.config.dragGather.name");
 
+        public static final ConfigBooleanHotkeyed WHEEL_TWEAK = new ConfigBooleanHotkeyed(
+                "wheelTweak", true, "",
+                "zuke-lightweight.config.wheelTweak.comment",
+                "zuke-lightweight.config.wheelTweak.name");
+
+        public static final ConfigOptionList WHEEL_DIRECTION = new ConfigOptionList(
+                "wheelDirection", ScrollDirection.POSITION_AWARE,
+                "zuke-lightweight.config.wheelDirection.comment",
+                "zuke-lightweight.config.wheelDirection.name");
+
         public static final ImmutableList<ConfigBooleanHotkeyed> TOGGLES =
-                ImmutableList.of(DRAG_QUICK_MOVE, DRAG_GATHER);
+                ImmutableList.of(DRAG_QUICK_MOVE, DRAG_GATHER, WHEEL_TWEAK);
+
+        /** Everything on the Mouse Tweaks tab, in display order (toggles first). */
+        public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.<IConfigBase>builder()
+                .addAll(TOGGLES)
+                .add(WHEEL_DIRECTION)
+                .build();
     }
 
     /** Plain hotkeys that aren't feature toggles. */
@@ -90,7 +107,7 @@ public final class Configs implements IConfigHandler {
             if (root.isJsonObject()) {
                 JsonObject obj = root.getAsJsonObject();
                 ConfigUtils.readConfigBase(obj, "Features", new ArrayList<IConfigBase>(Features.TOGGLES));
-                ConfigUtils.readConfigBase(obj, "MouseTweaks", new ArrayList<IConfigBase>(MouseTweaks.TOGGLES));
+                ConfigUtils.readConfigBase(obj, "MouseTweaks", new ArrayList<IConfigBase>(MouseTweaks.OPTIONS));
                 ConfigUtils.readConfigBase(obj, "Hotkeys", new ArrayList<IConfigBase>(Hotkeys.HOTKEYS));
             }
         });
@@ -100,7 +117,7 @@ public final class Configs implements IConfigHandler {
     public void save() {
         JsonObject root = new JsonObject();
         ConfigUtils.writeConfigBase(root, "Features", new ArrayList<IConfigBase>(Features.TOGGLES));
-        ConfigUtils.writeConfigBase(root, "MouseTweaks", new ArrayList<IConfigBase>(MouseTweaks.TOGGLES));
+        ConfigUtils.writeConfigBase(root, "MouseTweaks", new ArrayList<IConfigBase>(MouseTweaks.OPTIONS));
         ConfigUtils.writeConfigBase(root, "Hotkeys", new ArrayList<IConfigBase>(Hotkeys.HOTKEYS));
         JsonUtils.writeJsonToFile(root, FileUtils.getConfigDirectoryAsPath().resolve(CONFIG_FILE));
     }

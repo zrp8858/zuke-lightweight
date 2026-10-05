@@ -7,12 +7,19 @@
   "zuke-lightweight.config.slotRefill.name": "Slot Refill",
   "zuke-lightweight.config.slotRefill.comment": "When the stack in your selected hotbar slot runs out,\nswap in a matching stack from your main inventory.",
   "zuke-lightweight.config.hotbarShuffle.name": "Hotbar Shuffle",
-  "zuke-lightweight.config.hotbarShuffle.comment": "While on, placing a block randomly reselects another
-placeable block from your hotbar.",
+  "zuke-lightweight.config.hotbarShuffle.comment": "While on, placing a block randomly reselects another\nplaceable block from your hotbar.",
   "zuke-lightweight.config.dragQuickMove.name": "Shift+Drag Quick Move",
   "zuke-lightweight.config.dragQuickMove.comment": "Hold Shift and left-click, then drag across stacks to\nquick-move (shift-click) each one you pass over.",
   "zuke-lightweight.config.dragGather.name": "Drag Gather",
   "zuke-lightweight.config.dragGather.comment": "Pick up a stack and keep holding left-click: drag over stacks of the\nsame item to add them to your cursor stack (while they still fit).\nWith Shift held, those stacks are quick-moved instead.",
+  "zuke-lightweight.config.wheelTweak.name": "Scroll Wheel Tweak",
+  "zuke-lightweight.config.wheelTweak.comment": "Scroll over a stack to move one item at a time between this\ninventory and the other one (your inventory and a chest, say).\nScroll one way to push an item out, the other to pull a matching one in.",
+  "zuke-lightweight.config.wheelDirection.name": "Scroll Direction",
+  "zuke-lightweight.config.wheelDirection.comment": "Inventory Position Aware (default): scrolling toward the other inventory on screen\nalways pushes. Normal: scroll down pushes the item out, up pulls one in.",
+  "zuke-lightweight.config.scrollDirection.normal": "Normal",
+  "zuke-lightweight.config.scrollDirection.inverted": "Inverted",
+  "zuke-lightweight.config.scrollDirection.position_aware": "Inventory Position Aware",
+  "zuke-lightweight.config.scrollDirection.position_aware_inverted": "Inventory Position Aware, Inverted",
   "zuke-lightweight.config.openConfigGui.name": "Open Config Screen",
   "zuke-lightweight.config.openConfigGui.comment": "Opens this config screen."
 }

@@ -49,7 +49,7 @@ public final class ConfigScreen extends GuiConfigsBase {
 
     private enum Tab {
         FEATURES("zuke-lightweight.gui.tab.features", ImmutableList.copyOf(Configs.Features.TOGGLES)),
-        MOUSE("zuke-lightweight.gui.tab.mouse", ImmutableList.copyOf(Configs.MouseTweaks.TOGGLES)),
+        MOUSE("zuke-lightweight.gui.tab.mouse", Configs.MouseTweaks.OPTIONS),
         HOTKEYS("zuke-lightweight.gui.tab.hotkeys", ImmutableList.copyOf(Configs.Hotkeys.HOTKEYS));
 
         private final String translationKey;

@@ -24,6 +24,8 @@ public final class MouseTweaks {
                 leftDrag.onDrag(container, event);
                 return consumed;
             });
+            ScreenMouseEvents.allowMouseScroll(screen).register((s, x, y, scrollX, scrollY) ->
+                    !ScrollTweak.onScroll(container, x, y, scrollY));
             ScreenMouseEvents.afterMouseRelease(screen).register((s, event, consumed) -> {
                 leftDrag.onRelease();
                 return consumed;
