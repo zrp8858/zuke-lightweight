@@ -5,6 +5,9 @@
   "zuke-lightweight.hotkeys.category": "zukeLightweight Hotkeys",
   "zuke-lightweight.config.slotRefill.name": "Slot Refill",
   "zuke-lightweight.config.slotRefill.comment": "When the stack in your selected hotbar slot runs out,\nswap in a matching stack from your main inventory.",
+  "zuke-lightweight.config.hotbarShuffle.name": "Hotbar Shuffle",
+  "zuke-lightweight.config.hotbarShuffle.comment": "While on, placing a block randomly reselects another
+placeable block from your hotbar.",
   "zuke-lightweight.config.openConfigGui.name": "Open Config Screen",
   "zuke-lightweight.config.openConfigGui.comment": "Opens this config screen."
 }

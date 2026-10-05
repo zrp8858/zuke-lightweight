@@ -31,7 +31,13 @@ public final class Configs implements IConfigHandler {
                 "zuke-lightweight.config.slotRefill.comment",
                 "zuke-lightweight.config.slotRefill.name");
 
-        public static final ImmutableList<ConfigBooleanHotkeyed> TOGGLES = ImmutableList.of(SLOT_REFILL);
+        public static final ConfigBooleanHotkeyed HOTBAR_SHUFFLE = new ConfigBooleanHotkeyed(
+                "hotbarShuffle", false, "R",
+                "zuke-lightweight.config.hotbarShuffle.comment",
+                "zuke-lightweight.config.hotbarShuffle.name");
+
+        public static final ImmutableList<ConfigBooleanHotkeyed> TOGGLES =
+                ImmutableList.of(SLOT_REFILL, HOTBAR_SHUFFLE);
     }
 
     /** Plain hotkeys that aren't feature toggles. */

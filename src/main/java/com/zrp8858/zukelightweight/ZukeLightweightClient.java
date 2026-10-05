@@ -20,6 +20,7 @@ public class ZukeLightweightClient implements ClientModInitializer {
         // malilib calls back once it's ready to take configs and hotkeys.
         InitializationHandler.getInstance().registerInitializationHandler(new InitHandler());
         SlotRefill.register();
+        HotbarShuffle.register();
         LOGGER.info("zukeLightweight loaded");
     }
 }
