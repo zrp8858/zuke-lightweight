@@ -14,17 +14,18 @@ public final class MouseTweaks {
                 return;
             }
             // Fresh state per opened screen.
-            DragQuickMove dragQuickMove = new DragQuickMove();
+            LeftDrag leftDrag = new LeftDrag();
+            ScreenMouseEvents.beforeMouseClick(screen).register((s, event) -> leftDrag.beforeClick(container));
             ScreenMouseEvents.afterMouseClick(screen).register((s, event, consumed) -> {
-                dragQuickMove.onClick(container, event);
+                leftDrag.afterClick(container, event);
                 return consumed;
             });
             ScreenMouseEvents.afterMouseDrag(screen).register((s, event, dragX, dragY, consumed) -> {
-                dragQuickMove.onDrag(container, event);
+                leftDrag.onDrag(container, event);
                 return consumed;
             });
             ScreenMouseEvents.afterMouseRelease(screen).register((s, event, consumed) -> {
-                dragQuickMove.onRelease();
+                leftDrag.onRelease();
                 return consumed;
             });
         });

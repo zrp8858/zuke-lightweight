@@ -47,7 +47,13 @@ public final class Configs implements IConfigHandler {
                 "zuke-lightweight.config.dragQuickMove.comment",
                 "zuke-lightweight.config.dragQuickMove.name");
 
-        public static final ImmutableList<ConfigBooleanHotkeyed> TOGGLES = ImmutableList.of(DRAG_QUICK_MOVE);
+        public static final ConfigBooleanHotkeyed DRAG_GATHER = new ConfigBooleanHotkeyed(
+                "dragGather", true, "",
+                "zuke-lightweight.config.dragGather.comment",
+                "zuke-lightweight.config.dragGather.name");
+
+        public static final ImmutableList<ConfigBooleanHotkeyed> TOGGLES =
+                ImmutableList.of(DRAG_QUICK_MOVE, DRAG_GATHER);
     }
 
     /** Plain hotkeys that aren't feature toggles. */

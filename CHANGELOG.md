@@ -11,3 +11,4 @@
 - Slot Refill can be switched on and off.
 - Hotbar Shuffle (replaces the block-placement-shuffler mod): while on, placing a block randomly reselects another placeable block from your hotbar. Toggle it and bind its hotkey (default `R`) in the config; toggling shows malilib's ON/OFF message.
 - Mouse Tweaks: Shift + left-click drag quick-moves every stack you drag across (inventory, containers, and the creative Survival Inventory tab). Toggle it on the Mouse Tweaks tab of the config.
+- Mouse Tweaks: Drag Gather. Pick up a stack and keep holding left-click, then drag over stacks of the same item to add them to your cursor stack (with Shift held, they are quick-moved instead). Toggle on the Mouse Tweaks tab.

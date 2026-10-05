@@ -11,6 +11,8 @@
 placeable block from your hotbar.",
   "zuke-lightweight.config.dragQuickMove.name": "Shift+Drag Quick Move",
   "zuke-lightweight.config.dragQuickMove.comment": "Hold Shift and left-click, then drag across stacks to\nquick-move (shift-click) each one you pass over.",
+  "zuke-lightweight.config.dragGather.name": "Drag Gather",
+  "zuke-lightweight.config.dragGather.comment": "Pick up a stack and keep holding left-click: drag over stacks of the\nsame item to add them to your cursor stack (while they still fit).\nWith Shift held, those stacks are quick-moved instead.",
   "zuke-lightweight.config.openConfigGui.name": "Open Config Screen",
   "zuke-lightweight.config.openConfigGui.comment": "Opens this config screen."
 }
